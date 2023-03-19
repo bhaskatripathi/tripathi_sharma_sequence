@@ -146,6 +146,8 @@ def app():
     # Print the discrepancies dataframe
     st.markdown("<h3 style='font-size: 20px;'>Discrepancies</h3>", unsafe_allow_html=True)
     st.table(styled_df.format('{:.10f}'))
+    st.markdown("<p style='font-size: 12px; margin-top: 10px;'>*Bolded values are the lowest discrepancies in each column.</p>", unsafe_allow_html=True)
+
 
 
 
