@@ -127,11 +127,11 @@ def app():
 
     # Compute the discrepancies and get the sequences
     df, sobol_seq, halton_seq, combined_seq = compute_discrepancies(n_dim, n_points, alpha)
-    st.pyplot()
+    
 
     # Plot the sequences 
     plot_sequences(sobol_seq, halton_seq, combined_seq)
-    
+    st.pyplot()
 
     # Print the discrepancies dataframe
     st.markdown("<h3 style='font-size: 20px;'>Discrepancies</h3>", unsafe_allow_html=True)
