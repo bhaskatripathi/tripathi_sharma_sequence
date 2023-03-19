@@ -106,7 +106,7 @@ def main(n_dim, n,alpha):
     # Plot the sequences
     plot_sequences(sobol_seq, halton_seq, combined_seq)
     # Print the discrepancies dataframe
-    print(df)
+    #print(df)
     st.pyplot()
     # Print the discrepancies dataframe
     st.table(df)
