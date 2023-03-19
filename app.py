@@ -86,7 +86,7 @@ def compute_discrepancies(dim, n,alpha):
         'MD': [sobol_disc_md, halton_disc_md, combined_disc_md]
     }
     df = pd.DataFrame(data, index=['Sobol', 'Halton', 'Tripathi-Sharma Sobolton Sequence'])
-    df.round(10)
+    df=df.round(10)
     return df,sobol_seq, halton_seq, combined_seq
 
 
