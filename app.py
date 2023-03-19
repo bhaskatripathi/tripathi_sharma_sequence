@@ -135,26 +135,18 @@ def app():
     plot_sequences(sobol_seq, halton_seq, combined_seq)
     st.pyplot()
     
+    # Highlight minimum values in each column
+    def highlight_min(s):
+        is_min = s == s.min()
+        return ['font-weight: bold' if v else '' for v in is_min]
+
+    # Apply formatting to the DataFrame
+    styled_df = df.style.apply(highlight_min, axis=0)
+    
     # Print the discrepancies dataframe
     st.markdown("<h3 style='font-size: 20px;'>Discrepancies</h3>", unsafe_allow_html=True)
-    lowest_discrepancies = df == df.min()
-    styled_df = df.style.apply(lambda x: ['font-weight: bold' if v else '' for v in lowest_discrepancies.loc[x.name]], axis=1)
-    styled_df.format("{:.10f}")
-    st.table(styled_df.set_table_styles([{'selector': 'th',
-                                            'props': [('background', '#3f9bfc'),
-                                                      ('color', 'white'),
-                                                      ('font-size', '14px'),
-                                                      ('text-align', 'center'),
-                                                      ('border', '1px solid black')]},
-                                           {'selector': 'td',
-                                            'props': [('border', '1px solid black'),
-                                                      ('font-size', '12px'),
-                                                      ('text-align', 'center')]}]),
-             table_footer="<div style='font-size: 12px; margin-top: 10px;'>*Bolded values are the lowest discrepancies in each column.</div>")
-
-
-
-
+    st.table(styled_df.format('{:.10f}'))
+    st.markdown("<h6 style='font-size: 12px; margin-top: 10px;'>*Bolded values are the lowest discrepancies in each column.</h6>", unsafe_allow_html=True)
 
 # Run the streamlit app
 if __name__ == '__main__':
