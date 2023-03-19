@@ -94,7 +94,7 @@ def plot_sequences(sobol_seq, halton_seq, combined_seq):
     axs[0].scatter(sobol_seq[:, 0], sobol_seq[:, 1], c='b', alpha=0.3, s=2, label='Sobol Sequence')
     axs[0].set_title('Sobol Sequence (1975) ')
     axs[1].scatter(halton_seq[:, 0], halton_seq[:, 1], c='b', alpha=0.3, s=2,label='Halton Sequence')
-    axs[1].set_title('Halton's Sequence (1960) ')
+    axs[1].set_title('Halton Sequence (1960) ')
     axs[2].scatter(combined_seq[:, 0], combined_seq[:, 1], c='b', alpha=0.3, s=2,label='Tripathi-Sharma Sobolton Sequence')
     axs[2].set_title('Tripathi-Sharma Sequence (2023)')
     plt.show()
