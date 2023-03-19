@@ -118,6 +118,6 @@ if __name__ == '__main__':
     n = st.slider('n', min_value=100, max_value=5000, step=100, value=5000)
     
     # Call the `main` function with the input parameters
-    main(n_dim, n, p, alpha)
+    main(n_dim, n,alpha)
     
  
