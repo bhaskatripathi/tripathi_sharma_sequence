@@ -75,6 +75,8 @@ def compute_discrepancies(dim, n,alpha):
     combined_disc_l2star = discrepancy(combined_seq, method='L2-star')
     combined_disc_cd = discrepancy(combined_seq, method='CD')
     combined_disc_md = discrepancy(combined_seq, method='MD')
+    # Set display options
+    pd.options.display.float_format = '{:,.10f}'.format
     
 
     # Create DataFrame
