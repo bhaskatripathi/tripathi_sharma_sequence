@@ -116,7 +116,7 @@ def app():
 
     # Add a description of the app
     #st.markdown("<h3 style='font-size: 20px;'>Introduction</h3>", unsafe_allow_html=True)
-    st.markdown("<p style='font-size: 14px;'>This app computes and compares the L2-star, CD, and MD discrepancies of Sobol, Halton, and Tripathi-Sharma Quasi Monte Carlo sequences</p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-size: 14px;'>This app computes and compares the L2-star, CD, and MD discrepancies of Sobol, Halton, and Tripathi-Sharma Quasi Monte Carlo sequences. It can be seen that the Tripathi-Sharma sequence has Improved space-filling properties, Lower discrepancy values. It is also computationally less expensive than the standard Sobol and Halton methods. </p>", unsafe_allow_html=True)
 
     # Add sliders for the number of dimensions and points
     n_dim = st.sidebar.slider("Dimension", 1, 10, 2)
