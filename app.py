@@ -110,21 +110,31 @@ def main(n_dim, n,alpha):
 
 # Define the streamlit app
 def app():
+    st.set_page_config(layout="wide")
+
     st.title("Tripathi-Sharma Low Discrepancy Sequence")
-    title_description="""The combined sequence method is a superior alternative to traditional quasi-random sequences like Sobol and Halton. The method offers multiple advantages over these traditional sequences, including its ability to generate more accurate results for high-dimensional problems by eliminating patterns that cause bias in the sampling process. Moreover, it is more efficient in terms of sample size, which enables achieving the same level of accuracy with fewer samples than other quasi-random sequences. This results in a significant reduction in computational resources and time.
-    For layman users, the combined sequence method can be beneficial in industries such as finance, healthcare, or engineering, where it can help optimize models and simulations. It can be used to optimize investment portfolios, simulate clinical trials, or design high-performance structures. In summary, the combined sequence method is a powerful tool that can enhance the accuracy and efficiency of optimization and simulation problems."""
-    st.write(title_description)
 
-    # Define the input parameters using streamlit sliders
-    n_dim = st.slider('n_dim', min_value=2, max_value=10, step=1, value=2)
-    alpha = st.slider('alpha', min_value=0.0, max_value=2.0, step=0.5, value=2.0)
-    n = st.slider('n', min_value=100, max_value=5000, step=100, value=5000)
-    st.set_option('deprecation.showPyplotGlobalUse', False)
+    # Add a description of the app
+    st.markdown("<h3 style='font-size: 20px;'>Introduction</h3>", unsafe_allow_html=True)
+    st.markdown("<p style='font-size: 14px;'>This app computes and compares the L2-star, CD, and MD discrepancies of Sobol, Halton, and Tripathi-Sharma Sobolton sequences with mean perturbation. Use the sliders to set the dimension and number of points.</p>", unsafe_allow_html=True)
 
-    # Create a button to call the `main` function
-    if st.button("Compute Discrepancies"):
-        # Call the `main` function with the input parameters
-        main(n_dim, n, alpha)
+    # Add sliders for the number of dimensions and points
+    n_dim = st.sidebar.slider("Dimension", 1, 10, 2)
+    n_points = st.sidebar.slider("Number of Points", 1000, 10000, 2000)
+
+    # Add a slider for the alpha parameter
+    alpha = st.sidebar.slider("Alpha", 0.0, 1.0, 0.5, step=0.05)
+
+    # Compute the discrepancies and get the sequences
+    df, sobol_seq, halton_seq, combined_seq = compute_discrepancies(n_dim, n_points, alpha)
+
+    # Plot the sequences
+    plot_sequences(sobol_seq, halton_seq, combined_seq)
+
+    # Print the discrepancies dataframe
+    st.markdown("<h3 style='font-size: 20px;'>Discrepancies</h3>", unsafe_allow_html=True)
+    st.table(df)
+
 
 # Run the streamlit app
 if __name__ == '__main__':
