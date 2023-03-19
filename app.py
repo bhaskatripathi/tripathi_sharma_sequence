@@ -110,8 +110,11 @@ def main(n_dim, n,alpha):
 
 # Define the streamlit app
 def app():
-    st.title("Sobol and Halton Sequences Demo")
-    
+    st.title("Tripathi-Sharma Low Discrepancy Sequence")
+    title_description="""The combined sequence method is a superior alternative to traditional quasi-random sequences like Sobol and Halton. The method offers multiple advantages over these traditional sequences, including its ability to generate more accurate results for high-dimensional problems by eliminating patterns that cause bias in the sampling process. Moreover, it is more efficient in terms of sample size, which enables achieving the same level of accuracy with fewer samples than other quasi-random sequences. This results in a significant reduction in computational resources and time.
+    For layman users, the combined sequence method can be beneficial in industries such as finance, healthcare, or engineering, where it can help optimize models and simulations. It can be used to optimize investment portfolios, simulate clinical trials, or design high-performance structures. In summary, the combined sequence method is a powerful tool that can enhance the accuracy and efficiency of optimization and simulation problems."""
+    st.write(title_description)
+
     # Define the input parameters using streamlit sliders
     n_dim = st.slider('n_dim', min_value=2, max_value=10, step=1, value=2)
     alpha = st.slider('alpha', min_value=0.0, max_value=2.0, step=0.5, value=2.0)
