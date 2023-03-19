@@ -76,7 +76,7 @@ def compute_discrepancies(dim, n,alpha):
     combined_disc_cd = discrepancy(combined_seq, method='CD')
     combined_disc_md = discrepancy(combined_seq, method='MD')
     # Set display options
-    pd.options.display.float_format = '{:,.10f}'.format
+    pd.set_option('display.float_format', lambda x: '%.20f' % x)
     
 
     # Create DataFrame
