@@ -134,10 +134,19 @@ def app():
     # Plot the sequences 
     plot_sequences(sobol_seq, halton_seq, combined_seq)
     st.pyplot()
+    
+    # Highlight minimum values in each column
+    def highlight_min(s):
+        is_min = s == s.min()
+        return ['font-weight: bold' if v else '' for v in is_min]
 
+    # Apply formatting to the DataFrame
+    styled_df = df.style.apply(highlight_min, axis=0)
+    
     # Print the discrepancies dataframe
     st.markdown("<h3 style='font-size: 20px;'>Discrepancies</h3>", unsafe_allow_html=True)
-    st.table(df.round(10).style.format("{:.10f}"))
+    st.table(styled_df.format('{:.10f}'))
+
 
 
 
