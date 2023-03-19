@@ -105,19 +105,20 @@ def main(n_dim, n,alpha):
     # Print the discrepancies dataframe
     print(df)
 
-if __name__ == '__main__':
-    # # Define the input parameters
-    # n_dim = 2
-    # n = 5000
-    # alpha=2
-    # main(n_dim, n,alpha)
+# Define the streamlit app
+def app():
+    st.title("Sobol and Halton Sequences Demo")
     
-    # Define the input parameters
+    # Define the input parameters using streamlit sliders
     n_dim = st.slider('n_dim', min_value=2, max_value=10, step=1, value=2)
     alpha = st.slider('alpha', min_value=0.0, max_value=2.0, step=0.1, value=2.0)
     n = st.slider('n', min_value=100, max_value=5000, step=100, value=5000)
     
-    # Call the `main` function with the input parameters
-    main(n_dim, n,alpha)
-    
- 
+    # Create a button to call the `main` function
+    if st.button("Compute Discrepancies"):
+        # Call the `main` function with the input parameters
+        main(n_dim, n, alpha)
+
+# Run the streamlit app
+if __name__ == '__main__':
+    app()
