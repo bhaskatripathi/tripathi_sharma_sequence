@@ -116,8 +116,7 @@ def app():
 
     # Add a description of the app
     #st.markdown("<h3 style='font-size: 20px;'>Introduction</h3>", unsafe_allow_html=True)
-    st.markdown("<p style='font-size: 14px;'>The combined sequence method is a superior alternative to traditional quasi-random sequences like Sobol and Halton. The method offers multiple advantages over these traditional sequences, including its ability to generate more accurate results for high-dimensional problems by eliminating patterns that cause bias in the sampling process. Moreover, it is more efficient in terms of sample size, which enables achieving the same level of accuracy with fewer samples than other quasi-random sequences. This results in a significant reduction in computational resources and time.
-    For layman users, the combined sequence method can be beneficial in industries such as finance, healthcare, or engineering, where it can help optimize models and simulations. It can be used to optimize investment portfolios, simulate clinical trials, or design high-performance structures. In summary, the combined sequence method is a powerful tool that can enhance the accuracy and efficiency of optimization and simulation problems. Use the sliders to set the dimension and number of points.</p>", unsafe_allow_html=True)
+    st.markdown("<p style='font-size: 14px;'>This app computes and compares the L2-star, CD, and MD discrepancies of Sobol, Halton, and Tripathi-Sharma Quasi Monte Carlo sequences</p>", unsafe_allow_html=True)
 
     # Add sliders for the number of dimensions and points
     n_dim = st.sidebar.slider("Dimension", 1, 10, 2)
