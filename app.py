@@ -138,7 +138,7 @@ def app():
 
     # Print the discrepancies dataframe
     st.markdown("<h3 style='font-size: 20px;'>Discrepancies</h3>", unsafe_allow_html=True)
-    st.table(df)
+    st.table(df.round(8))
 
 
 # Run the streamlit app
