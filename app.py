@@ -147,6 +147,13 @@ def app():
     st.markdown("<h3 style='font-size: 20px;'>Discrepancies</h3>", unsafe_allow_html=True)
     st.table(styled_df.format('{:.10f}'))
     st.markdown("<h6 style='font-size: 12px; margin-top: 10px;'>*Bolded values are the lowest discrepancies in each column.</h6>", unsafe_allow_html=True)
+    
+    # Add a markdown with the advantages of Tripathi Sharma sequence
+    st.markdown("<h3 style='font-size: 20px;'>Advantages of Tripathi Sharma Sequence</h3>", unsafe_allow_html=True)
+    st.markdown("<ul><li>Improved space-filling properties</li><li>Reduced variance and better convergence in Monte Carlo simulations</li><li>Enhanced exploration and exploitation trade-off in optimization problems</li><li>Better performance in high-dimensional optimization problems</li><li>Reduced likelihood of getting stuck in local minima in optimization problems</li></ul><p>Overall, the Tripathi-Sharma Sobolton sequence is a promising tool for researchers and practitioners seeking to improve the accuracy, efficiency, and robustness of various numerical methods.</p>", unsafe_allow_html=True)
+
+    # Add a table footer
+    st.markdown("<p style='font-size: 12px; margin-top: 10px;'>*Bolded values are the lowest discrepancies in each column.</p>", unsafe_allow_html=True)
 
 # Run the streamlit app
 if __name__ == '__main__':
