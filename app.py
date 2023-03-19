@@ -111,7 +111,7 @@ def app():
     
     # Define the input parameters using streamlit sliders
     n_dim = st.slider('n_dim', min_value=2, max_value=10, step=1, value=2)
-    alpha = st.slider('alpha', min_value=0.0, max_value=2.0, step=0.5, value=2)
+    alpha = st.slider('alpha', min_value=0.0, max_value=2.0, step=0.5, value=2.0)
     n = st.slider('n', min_value=100, max_value=5000, step=100, value=5000)
     
     # Create a button to call the `main` function
