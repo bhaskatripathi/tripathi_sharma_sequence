@@ -104,6 +104,9 @@ def main(n_dim, n,alpha):
     plot_sequences(sobol_seq, halton_seq, combined_seq)
     # Print the discrepancies dataframe
     print(df)
+    st.pyplot()
+    # Print the discrepancies dataframe
+    st.table(df)
 
 # Define the streamlit app
 def app():
