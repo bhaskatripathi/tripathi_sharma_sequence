@@ -85,7 +85,7 @@ def compute_discrepancies(dim, n,alpha):
         'CD': [sobol_disc_cd, halton_disc_cd, combined_disc_cd],
         'MD': [sobol_disc_md, halton_disc_md, combined_disc_md]
     }
-    df = pd.DataFrame(data, index=['Sobol', 'Halton', 'Tripathi-Sharma Sobolton Sequence'])
+    df = pd.DataFrame(data, index=['Sobol', 'Halton', 'Tripathi-Sharma Sequence'])
     return df,sobol_seq, halton_seq, combined_seq
 
 
@@ -95,7 +95,7 @@ def plot_sequences(sobol_seq, halton_seq, combined_seq):
     axs[0].set_title('Sobol Sequence (1975)')
     axs[1].scatter(halton_seq[:, 0], halton_seq[:, 1], c='b', alpha=0.3, s=2,label='Halton Sequence')
     axs[1].set_title('Halton Sequence (1960)')
-    axs[2].scatter(combined_seq[:, 0], combined_seq[:, 1], c='b', alpha=0.3, s=2,label='Tripathi-Sharma Sobolton Sequence')
+    axs[2].scatter(combined_seq[:, 0], combined_seq[:, 1], c='b', alpha=0.3, s=2,label='Tripathi-Sharma Sequence')
     axs[2].set_title('Tripathi-Sharma Sequence (2023)')
     plt.show()
 
@@ -121,7 +121,7 @@ def app():
     st.markdown("<p style='font-size: 14px;'>This app computes and compares the L2-star, CD, and MD discrepancies of Sobol, Halton, and Tripathi-Sharma Quasi Monte Carlo sequences. It can be seen that the Tripathi-Sharma sequence has Improved space-filling properties, Lower discrepancy values. It is also computationally less expensive than the standard Sobol and Halton methods. </p>", unsafe_allow_html=True)
 
     # Add sliders for the number of dimensions and points
-    n_dim = st.sidebar.slider("Dimension", 1, 10, 2)
+    n_dim = st.sidebar.slider("Dimension", 1, 20, 2)
     n_points = st.sidebar.slider("Number of Points", 1000, 10000, 2000)
 
     # Add a slider for the alpha parameter
