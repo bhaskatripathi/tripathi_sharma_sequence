@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from scipy.stats.qmc import discrepancy
 import streamlit as st
-
+import csv
 
 def sobol_halton_sequence1(dim, n):
     # Generate Sobol and Halton sequences separately
@@ -98,7 +98,14 @@ def plot_sequences(sobol_seq, halton_seq, combined_seq):
     axs[2].scatter(combined_seq[:, 0], combined_seq[:, 1], c='b', alpha=0.3, s=2,label='Tripathi-Sharma Sequence')
     axs[2].set_title('Tripathi-Sharma Sequence (2023)')
     plt.show()
-
+  
+def export_to_csv(data):
+    with open('output.csv', mode='w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(['Index', 'Value'])
+        for i, value in enumerate(data):
+            writer.writerow([i+1, value])
+    
 def main(n_dim, n,alpha):
     # Compute the discrepancies and get the sequences
     df, sobol_seq, halton_seq, combined_seq = compute_discrepancies(n_dim, n, alpha)
@@ -121,15 +128,30 @@ def app():
     st.markdown("<p style='font-size: 14px;'>This app computes and compares the L2-star, CD, and MD discrepancies of Sobol, Halton, and Tripathi-Sharma Quasi Monte Carlo sequences. It can be seen that the Tripathi-Sharma sequence has Improved space-filling properties, Lower discrepancy values. It is also computationally less expensive than the standard Sobol and Halton methods. </p>", unsafe_allow_html=True)
 
     # Add sliders for the number of dimensions and points
-    n_dim = st.sidebar.slider("Dimension", 1, 20, 2)
+    n_dim = st.sidebar.slider("Dimensions", 1, 20, 2)
     n_points = st.sidebar.slider("Number of Points", 1000, 10000, 2000)
 
     # Add a slider for the alpha parameter
-    alpha = st.sidebar.slider("Alpha", 0.0, 1.0, 0.5, step=0.05)
+    alpha = st.sidebar.slider("Alpha", 0.0, 2.0, 0.5, step=0.05)
 
     # Compute the discrepancies and get the sequences
     df, sobol_seq, halton_seq, combined_seq = compute_discrepancies(n_dim, n_points, alpha)
     
+    # Export to CSV button
+    if st.sidebar.button("Export to CSV"):
+        # Create a dataframe from the combined sequence
+        seq_df = pd.DataFrame(combined_seq, columns=["Dimension " + str(i+1) for i in range(n_dim)])
+
+        # Prompt the user to save the file
+        file_name = st.sidebar.text_input("File name", "combined_seq.csv")
+        file_type = file_name.split(".")[-1]
+
+        # Save the file to CSV
+        if file_type == "csv":
+            seq_df.to_csv(file_name, index=False)
+            st.sidebar.success("File saved successfully!")
+        else:
+            st.sidebar.error("Invalid file type. Please use CSV format.")  
 
     # Plot the sequences 
     plot_sequences(sobol_seq, halton_seq, combined_seq)
