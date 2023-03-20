@@ -6,6 +6,7 @@ import pandas as pd
 from scipy.stats.qmc import discrepancy
 import streamlit as st
 import csv
+import base64
 
 def sobol_halton_sequence1(dim, n):
     # Generate Sobol and Halton sequences separately
