@@ -137,8 +137,10 @@ def app():
     # Add sliders for the number of dimensions and points
     #n_dim = st.sidebar.slider("Dimensions", 1, 20, 2)
     n_dim = st.sidebar.text_input("Dimensions", 2)
+    n_dim= int(n_dim)
     #n_points = st.sidebar.slider("Number of Points", 1000, 10000, 2000)
     n_points = st.sidebar.text_input("Number of Points", 2000)
+    n_points=int(n_points)
 
     # Add a slider for the alpha parameter
     alpha = st.sidebar.slider("Alpha", 0.0, 2.0, 0.5, step=0.05)
