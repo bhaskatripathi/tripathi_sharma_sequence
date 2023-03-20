@@ -137,21 +137,13 @@ def app():
     # Compute the discrepancies and get the sequences
     df, sobol_seq, halton_seq, combined_seq = compute_discrepancies(n_dim, n_points, alpha)
     
-    # Export to CSV button
+    # Add a button to download the combined sequence as a CSV file
     if st.sidebar.button("Export to CSV"):
-        # Create a dataframe from the combined sequence
-        seq_df = pd.DataFrame(combined_seq, columns=["Dimension " + str(i+1) for i in range(n_dim)])
-
-        # Prompt the user to save the file
-        file_name = st.sidebar.text_input("File name", "combined_seq.csv")
-        file_type = file_name.split(".")[-1]
-
-        # Save the file to CSV
-        if file_type == "csv":
-            seq_df.to_csv(file_name, index=False)
-            st.sidebar.success("File saved successfully!")
-        else:
-            st.sidebar.error("Invalid file type. Please use CSV format.")  
+        csv = combined_seq.to_csv(index=False)
+        b64 = base64.b64encode(csv.encode()).decode()
+        href = f'<a href="data:file/csv;base64,{b64}" download="tripathi_sharma_seq.csv">Download the sequence as CSV</a>'
+        st.sidebar.markdown(href, unsafe_allow_html=True)
+        st.sidebar.success("File saved successfully!")  
 
     # Plot the sequences 
     plot_sequences(sobol_seq, halton_seq, combined_seq)
