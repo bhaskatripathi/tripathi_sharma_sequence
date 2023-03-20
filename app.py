@@ -105,6 +105,12 @@ def export_to_csv(data):
         writer.writerow(['Index', 'Value'])
         for i, value in enumerate(data):
             writer.writerow([i+1, value])
+            
+def get_download_link(file_path):
+    with open(file_path, "rb") as f:
+        bytes = f.read()
+        b64 = base64.b64encode(bytes).decode()
+        return f'<a href="data:file/csv;base64,{b64}" download="{file_path}">Download the sequence as CSV</a>'
     
 def main(n_dim, n,alpha):
     # Compute the discrepancies and get the sequences
@@ -139,11 +145,9 @@ def app():
     
     # Add a button to download the combined sequence as a CSV file
     if st.sidebar.button("Export to CSV"):
-        csv = combined_seq.to_csv(index=False)
-        b64 = base64.b64encode(csv.encode()).decode()
-        href = f'<a href="data:file/csv;base64,{b64}" download="tripathi_sharma_seq.csv">Download the sequence as CSV</a>'
-        st.sidebar.markdown(href, unsafe_allow_html=True)
-        st.sidebar.success("File saved successfully!")  
+        np.savetxt("tripathi_sharma_seq.csv", combined_seq, delimiter=",")
+        st.sidebar.success("File saved successfully!")
+        st.sidebar.markdown(get_download_link("tripathi_sharma_seq.csv"), unsafe_allow_html=True)  
 
     # Plot the sequences 
     plot_sequences(sobol_seq, halton_seq, combined_seq)
