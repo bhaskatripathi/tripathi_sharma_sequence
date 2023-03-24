@@ -135,11 +135,11 @@ def app():
     st.markdown("<p style='font-size: 14px;'>This app computes and compares the L2-star, CD, and MD discrepancies of Sobol, Halton, and Tripathi-Sharma Quasi Monte Carlo sequences. It can be seen that the Tripathi-Sharma sequence has Improved space-filling properties, Lower discrepancy values. It is also computationally less expensive than the standard Sobol and Halton methods. </p>", unsafe_allow_html=True)
 
     # Add sliders for the number of dimensions and points
-    #n_dim = st.sidebar.slider("Dimensions", 1, 20, 2)
-    n_dim = st.sidebar.text_input("Dimensions", 2)
+    n_dim = st.sidebar.slider("Dimensions", 1, 20, 2)
+    #n_dim = st.sidebar.text_input("Dimensions", 2)
     n_dim= int(n_dim)
-    #n_points = st.sidebar.slider("Number of Points", 1000, 10000, 2000)
-    n_points = st.sidebar.text_input("Number of Points", 2000)
+    n_points = st.sidebar.slider("Number of Points", 1000, 10000, 2000)
+    #n_points = st.sidebar.text_input("Number of Points", 2000)
     n_points=int(n_points)
     
 
@@ -157,6 +157,7 @@ def app():
 
     # Plot the sequences 
     plot_sequences(sobol_seq, halton_seq, combined_seq)
+    st.set_option('deprecation.showPyplotGlobalUse', False)
     st.pyplot()
     
     # Highlight minimum values in each column
