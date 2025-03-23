@@ -74,8 +74,8 @@ All internal parameters are dynamically calculated based on the problem's **dime
 The pattern for each sunflower point is based on the below equations. Basically we take the distance of each seed from the center and then theta times the golden angle radians for both co-ordinates, then we plot them on a scatter plot of 3X3 grid. It is quite simplistic implementation in that sense:
   
  -  $$x=\text{center}_x + r \cdot \cos(\theta)$$ \
-  - $$y=\text{center}_y + r \cdot \sin(\theta)$$ \\
-  where $$\( r \)$$ is the radius (calculated based on the point's index) and \( \theta \) is the angle (based on the golden angle).
+  - $$y=\text{center}_y + r \cdot \sin(\theta)$$ \
+  where $$\( r \)$$ is the radius (calculated based on the point's index) and $$\( \theta \)$$ is the angle (based on the golden angle).
 
 ## 5. **Square-Optimized Distribution**:
 To improve the sequence's performance in square domains, the naturally circular sunflower pattern is modified. The points are mapped to square coordinates, improving coverage for non-circular domains. This adjustment ensures better filling of the computational space, especially for problems involving square or rectangular regions.
@@ -93,14 +93,14 @@ After applying sunflower patterns and Sobol points, the sequence is refined by s
 
 ### Technical Formulation:
 - Golden ratio (φ):
-  $$ \phi = \frac{1 + \sqrt{5}}{2} $$
+  $$\phi = \frac{1 + \sqrt{5}}{2}$$
 
 - Golden angle (θ):
-  $$ \theta = 137.5^\circ $$
+  $$\theta = 137.5^\circ$$
 
 - Point placement in sunflower patterns:
-  $$ x = \text{center}_x + r \cdot \cos(\theta) $$
-  $$ y = \text{center}_y + r \cdot \sin(\theta) $$
+  $$x = \text{center}_x + r \cdot \cos(\theta)$$;
+  $$y = \text{center}_y + r \cdot \sin(\theta)$$
   
 
 
