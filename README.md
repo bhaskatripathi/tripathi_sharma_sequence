@@ -71,10 +71,10 @@ The **Tripathi-Sharma sequence** is hybrid in nature, combining deterministic su
 All internal parameters are dynamically calculated based on the problem's **dimensions** and **point count**. This ensures that the sequence adapts to different computational problems without hardcoding values. The algorithm adjusts the grid size, number of sunflower centers, and Sobol filling ratio based on the problem's complexity.
 
 ### Main Intution:
-- The pattern for each sunflower point is based on the below equations. Basically we take the distance of each seed from the center and then theta times the golden angle radians for both co-ordinates, then we plot them on a scatter plot of 3X3 grid. It is quite simplistic implementation in that sense:
+The pattern for each sunflower point is based on the below equations. Basically we take the distance of each seed from the center and then theta times the golden angle radians for both co-ordinates, then we plot them on a scatter plot of 3X3 grid. It is quite simplistic implementation in that sense:
   
-  $$x=\text{center}_x + r \cdot \cos(\theta)$$
-  $$y=\text{center}_y + r \cdot \sin(\theta)$$
+ -  $$x=\text{center}_x + r \cdot \cos(\theta)$$ \
+  - $$y=\text{center}_y + r \cdot \sin(\theta)$$ \\
   where $$\( r \)$$ is the radius (calculated based on the point's index) and \( \theta \) is the angle (based on the golden angle).
 
 ## 5. **Square-Optimized Distribution**:
