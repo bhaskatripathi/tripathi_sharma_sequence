@@ -37,7 +37,7 @@ The Tripathi-Sharma sequence is particularly advantageous in the following scena
   - Dithering and sampling
 - **Financial Simulations**: For option pricing and risk assessment models where balanced sampling is critical.
 - **Machine Learning**: For initialization of weights or sampling strategies in probabilistic models.
-- **Scientific Visualization**: Creating visually balanced point distributions for data representation.
+- **Gradient Free Optimization**: Tripathi-Sharma sequence can be used to initialize the population in particle-based meta-heuristic methods such as PSO, GWO, and Genetic Algorithms to improve their performance.
 
 ## Mathematical Foundation
 The sequence generation combines several mathematical principles:
