@@ -11,7 +11,7 @@ The application is already better than sobol sequence on several parameters, as 
 The Tripathi-Sharma sequence draws inspiration from the remarkable geometric properties found in nature, specifically the arrangement of seeds in sunflowers following the golden angle (approximately 137.5°). This pattern, optimized through millions of years of evolution, creates an exceptionally efficient space-filling distribution.
 
 ## Core Principles
-- The project takes its main inspiration from the works of Etérea and Cristóbal Vila (https://etereaestudios.com/works/nature-by-numbers/) and Sobol (https://en.wikipedia.org/wiki/Sobol_sequence).
+- The project takes its main inspiration from the works of Etérea and Cristóbal Vila (https://etereaestudios.com/works/nature-by-numbers/) and Sobol (https://en.wikipedia.org/wiki/Sobol_sequence). If you want to understand more about it then refer the excel sheet here: [Download Excel](https://github.com/bhaskatripathi/tripathi_sharma_sequence/blob/main/Golden_Ratio_Sunflower_radians.xlsx)
 - **Biomimetic Design**: I utilize the sunflower seed arrangement pattern to construct QCMC low discrepnacy sequences.
 - **Multi-scale Structure**: Combines local pattern optimization with global space-filling properties.
 - **Hybrid Approach**: Integrates deterministic patterns with quasi-random filling strategies.
